@@ -7,10 +7,11 @@
     "test": "test"
   },
   "scripts": {
+    "start": "nodemon server.js",
     "test-set": "npm run test-funcional-set && npm run test-pseudoclassical-set && npm run test-es6-set",
     "test-funcional-set": "mocha test/functional/set.spec.js",
     "test-pseudoclassical-set": "mocha test/pseudoclassical/set.spec.js",
-    "test-es6-set": "mocha test/es6/set.spec.js",
+    "test-es6-set": "mocha test/es6/set.spec.js"
   },
   "keywords": [],
   "repository": {
@@ -24,6 +25,7 @@
     "istanbul": "^0.3.15",
     "jshint-stylish": "^2.0.0",
     "mocha": "^2.5.3",
-    "mocha-lcov-reporter": "0.0.2"
+    "mocha-lcov-reporter": "0.0.2",
+    "underscore": "^1.8.3"
   }
 }
