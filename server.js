@@ -2,16 +2,9 @@ const http = require('http');
 const _ = require('underscore');
 const Tree = require('./Tree.js');
 
-//Create your public tree here
-const publicTree = new Tree("1");
-publicTree.addChild("2");
-publicTree.findNode("2").addChild("H");
-publicTree.addChild("3");
-publicTree.findNode("3").addChild("e");
-publicTree.findNode("3").addChild("l");
-publicTree.addChild("4");
-publicTree.findNode("4").addChild("l");
-publicTree.findNode("4").addChild("o");
+//Instantiate your public tree here
+//Add nodes to pass integration tests
+
 
 
 // invoked on every request
@@ -21,12 +14,15 @@ function requestHandler(request,response){
 
   //on every request check if node id exists
   if(publicTree.contains(nodeId)){
+
+    //If it exists, find it
     let resultNode = publicTree.findNode(nodeId);
     console.log(resultNode.children);
 
+    //Create an array of the child values
     let result = _.map(resultNode.children,function(child){return child.value});
 
-    //Set statusCode, headers and write stringified result to body
+    //Set statusCode, headers and write stringified result to response body
     response.statusCode = 200;
     response.setHeader('Content-Type', 'application/json');
     response.write(JSON.stringify(result));
@@ -37,7 +33,7 @@ function requestHandler(request,response){
 
     //otherwise respond with invalid node
     response.statusCode = 404;
-    response.write('invalid node');
+    response.write('Invalid Node');
     response.end();
 
   }

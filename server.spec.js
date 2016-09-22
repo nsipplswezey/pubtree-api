@@ -1,19 +1,14 @@
 const expect = require('chai').expect;
 const querystring = require('querystring');
 const http = require('http');
-//const request = require('request');
-
-//consider writing the test not to use request
-//but to use a complete node http requests
-
 
 describe("Public Tree API", function() {
 
   describe("Public Tree contains a message", function() {
 
-    it("returns status 200", function(done) {
+    it("returns the ids of the child node", function(done) {
 
-      var options = {
+      const options = {
         hostname: 'localhost',
         port: 1337,
         path: '/1',
@@ -21,7 +16,7 @@ describe("Public Tree API", function() {
         headers: {}
       };
 
-      let getRequest = http.request(options, (response) => {
+      const getRequest = http.request(options, (response) => {
         console.log(`STATUS: ${response.statusCode}`);
         console.log(`HEADERS: ${JSON.stringify(response.headers)}`);
 
@@ -38,12 +33,10 @@ describe("Public Tree API", function() {
         response.on('end', () => {
           console.log('No more data in response.');
           console.log(responseChunks);
-          responseBody = Buffer.concat(responseChunks).toString();
+          responseBodyString = Buffer.concat(responseChunks).toString();
+          const responseData = JSON.parse(responseBody);
 
-          console.log(responseBody);
-          console.log(responseBody);
-
-
+          //One of these will fail; why?
           expect(JSON.parse(responseBody)).to.be.equal(["2","3","4"]);
           expect(JSON.parse(responseBody)).to.deep.equal(["2","3","4"]);
           done();
@@ -52,7 +45,7 @@ describe("Public Tree API", function() {
 
       });
 
-      //Fires off the request
+      //Invokes the callback that was passed the invokation of http.request
       getRequest.end()
     });
 

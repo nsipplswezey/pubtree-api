@@ -11,6 +11,7 @@ class Tree {
 
   contains(target){
     //contains is a recursive function
+    //recursion occurs when a function invokes itself
 
     if ( this.value === target){
       return true;

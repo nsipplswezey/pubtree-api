@@ -1,5 +1,5 @@
 var expect = require('chai').expect,
-    Set = require('../../pseudoclassical/set.js');
+    Set = require('../../Set/pseudoclassical/set.js');
 
 describe('set test', function() {
 

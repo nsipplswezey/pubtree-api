@@ -1,5 +1,5 @@
 var expect = require('chai').expect,
-    Set = require('../../functional/set.js');
+    Set = require('../../Set/functional/set.js');
 
 describe('set test', function() {
 
