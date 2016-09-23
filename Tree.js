@@ -1,3 +1,5 @@
+'use strict';
+
 class Tree {
   constructor(value){
     this.value = value;
