@@ -1,7 +1,7 @@
 const Tree = require('./Tree.js');
 const expect = require('chai').expect;
 
-describe("Tree API", function() {
+describe("Tree data structure", function() {
 
     describe("the constructor function", function(){
 

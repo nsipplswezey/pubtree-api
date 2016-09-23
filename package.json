@@ -9,10 +9,9 @@
   "scripts": {
     "start": "nodemon server.js",
     "test": "npm run test-tree",
+    "integration-test": "mocha server.spec.js",
     "test-tree": "mocha Tree.spec.js",
-    "test-set": "mocha Set.spec/functional/set.spec.js &&
-                 mocha Set.spec/pseudoclassical/set.spec.js &&
-                 mocha Set.spec/es6/set.spec.js"
+    "test-set": "mocha Set.spec/functional/set.spec.js && mocha Set.spec/pseudoclassical/set.spec.js && mocha Set.spec/es6/set.spec.js"
   },
   "keywords": [],
   "repository": {

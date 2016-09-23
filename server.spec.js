@@ -49,7 +49,12 @@ describe("Public Tree API", function() {
       getRequest.end()
     });
 
-    it("returns the first letter of the message", function() {});
+    it("responds to an http request with the first letter of the message", function() {
+
+      http.get()
+
+
+    });
 
   });
 
