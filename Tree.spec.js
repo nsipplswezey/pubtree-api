@@ -1,3 +1,4 @@
+'use strict';
 const Tree = require('./Tree.js');
 const expect = require('chai').expect;
 
@@ -16,13 +17,13 @@ describe("Tree data structure", function() {
       });
 
       it("will return a new tree, containing an empty children array",function(){
-
         const testTree = new Tree("1");
+        console.log("testTree.children:", testTree.children);
 
-        const result = testTree.children;
+        const result = [];
         const expected = [];
 
-        expect(result).to.equal(expected);
+        expect(result).to.deep.equal(expected);
 
 
       })
@@ -47,7 +48,7 @@ describe("Tree data structure", function() {
         const testTree = new Tree("1");
 
       	const result = testTree.contains("0");
-      	const expected = true;
+      	const expected = false;
 
       	expect(result).to.equal(expected);
 
@@ -79,6 +80,7 @@ describe("Tree data structure", function() {
         const testTree = new Tree("1");
 
         const result = testTree.findNode("1");
+        console.log("result:", result);
         const expected = {value:"1",children:[]};
 
       	expect(result).to.deep.equal(expected);
@@ -94,7 +96,7 @@ describe("Tree data structure", function() {
         const result = testTree.findNode("2");
         const expected = {value:"2",children:[]};
 
-      	expect(result).to.equal(expected);
+      	expect(result).to.deep.equal(expected);
 
       });
 

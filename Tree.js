@@ -15,21 +15,21 @@ class Tree {
     //contains is a recursive function
     //recursion occurs when a function invokes itself
 
-    if ( this.value === target){
+    if (this.value === target){
       return true;
     }
 
     for (let i = 0; i < this.children.length; i++){
       const child = this.children[i];
-      if (child.contains(target)){
+      if (child.contains(target) === true){
         return true;
       }
     }
-
     return false;
   }
 
   findNode(target){
+    console.log("this:", this);
     if (this.value === target){
       return this;
     }
