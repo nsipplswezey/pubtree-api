@@ -1,3 +1,4 @@
+'use strict'
 const http = require('http');
 const _ = require('underscore');
 const Tree = require('./Tree.js');
@@ -8,6 +9,7 @@ const Tree = require('./Tree.js');
 
 
 // invoked on every request
+var publicTree = new Tree();
 function requestHandler(request,response){
 
   let nodeId = request.url.slice(1);
