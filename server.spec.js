@@ -1,3 +1,4 @@
+'use strict'
 const expect = require('chai').expect;
 const querystring = require('querystring');
 const http = require('http');
@@ -34,11 +35,11 @@ describe("Public Tree API", function() {
           console.log('No more data in response.');
           console.log(responseChunks);
           responseBodyString = Buffer.concat(responseChunks).toString();
-          const responseData = JSON.parse(responseBody);
+          const responseData = JSON.parse(responseBodyString);
 
           //One of these will fail; why?
-          expect(JSON.parse(responseBody)).to.be.equal(["2","3","4"]);
-          expect(JSON.parse(responseBody)).to.deep.equal(["2","3","4"]);
+          //expect(JSON.parse(responseBodyString)).to.be.equal(["2","3","4"]);
+          expect(JSON.parse(responseBodyString)).to.deep.equal(["2","3","4"]);
           done();
 
         });
@@ -50,9 +51,6 @@ describe("Public Tree API", function() {
     });
 
     it("responds to an http request with the first letter of the message", function() {
-
-      http.get()
-
 
     });
 

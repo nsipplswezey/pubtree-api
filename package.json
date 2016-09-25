@@ -1,7 +1,7 @@
 {
-  "name": "datastructures-api",
+  "name": "pubtree-api",
   "version": "0.0.1",
-  "description": "data structures implementation in javascript",
+  "description": "the public tree",
   "main": "index.js",
   "repository": "https://github.com/nsipplswezey/pubtree-api",
   "directories": {
@@ -17,6 +17,9 @@
   "keywords": [],
   "author": "nsipplswezey",
   "license": "MIT",
+  "dependencies":{
+    "underscore":"^1.8.3"
+  },
   "devDependencies": {
     "chai": "~3.0.0",
     "jshint-stylish": "^2.0.0",
@@ -25,6 +28,6 @@
     "underscore": "^1.8.3"
   },
   "engines":{
-    "node":"4"
+    "node":"~6.4.0"
   }
 }

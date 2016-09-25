@@ -1,3 +1,5 @@
+'use strict';
+
 const http = require('http');
 const _ = require('underscore');
 const Tree = require('./Tree.js');
@@ -5,6 +7,11 @@ const Tree = require('./Tree.js');
 //Instantiate your public tree here
 //Add nodes to pass integration tests
 
+const publicTree = new Tree("1");
+
+publicTree.findNode("1").addChild("2");
+publicTree.findNode("1").addChild("3");
+publicTree.findNode("1").addChild("4");
 
 
 // invoked on every request
@@ -45,4 +52,4 @@ const server = http.createServer();
 server.on('request', requestHandler);
 
 
-server.listen(1337,() => {console.log('public tree is listening at 1337')});
+server.listen(process.env.PORT || 1337,() => {console.log('public tree is listening at 1337')});
