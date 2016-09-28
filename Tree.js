@@ -29,7 +29,6 @@ class Tree {
   }
 
   findNode(target){
-    console.log("this:", this);
     if (this.value === target){
       return this;
     }

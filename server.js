@@ -1,12 +1,24 @@
+'use strict'
 const http = require('http');
 const _ = require('underscore');
 const Tree = require('./Tree.js');
 
 //Instantiate your public tree here
 //Add nodes to pass integration tests
+const publicTree = new Tree("0");
+publicTree.addChild("1");
+publicTree.addChild("2");
+publicTree.addChild("3");
 
+publicTree.children[0].addChild("a");
+publicTree.children[1].addChild("p");
+publicTree.children[2].addChild("i");
 
+console.log(publicTree.children[0].children[0].value + publicTree.children[1].children[0].value + publicTree.children[2].children[0].value);
 
+console.log(publicTree.children);
+
+let allTogether = [];
 // invoked on every request
 function requestHandler(request,response){
 
@@ -21,7 +33,8 @@ function requestHandler(request,response){
 
     //Create an array of the child values
     let result = _.map(resultNode.children,function(child){return child.value});
-
+    // returns ["i"]
+    allTogether.push(result)
     //Set statusCode, headers and write stringified result to response body
     response.statusCode = 200;
     response.setHeader('Content-Type', 'application/json');

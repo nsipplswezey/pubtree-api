@@ -1,3 +1,4 @@
+'use strict'
 const expect = require('chai').expect;
 const querystring = require('querystring');
 const http = require('http');
@@ -11,7 +12,7 @@ describe("Public Tree API", function() {
       const options = {
         hostname: 'localhost',
         port: 1337,
-        path: '/1',
+        path: '/0',
         method: 'GET',
         headers: {}
       };
@@ -33,12 +34,12 @@ describe("Public Tree API", function() {
         response.on('end', () => {
           console.log('No more data in response.');
           console.log(responseChunks);
-          responseBodyString = Buffer.concat(responseChunks).toString();
-          const responseData = JSON.parse(responseBody);
+          const responseBodyString = Buffer.concat(responseChunks).toString();
+          const responseData = JSON.parse(responseBodyString);
 
           //One of these will fail; why?
-          expect(JSON.parse(responseBody)).to.be.equal(["2","3","4"]);
-          expect(JSON.parse(responseBody)).to.deep.equal(["2","3","4"]);
+          expect(JSON.parse(responseData)).to.be.equal(["1","2","3"]);
+          expect(JSON.parse(responseData)).to.deep.equal(["1","2","3"]);
           done();
 
         });
