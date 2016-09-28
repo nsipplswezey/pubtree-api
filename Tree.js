@@ -1,4 +1,6 @@
 'use strict';
+const Tree1 = new Tree("1");
+
 
 class Tree {
   constructor(value){
