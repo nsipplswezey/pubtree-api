@@ -1,4 +1,6 @@
 'use strict';
+const Tree1 = new Tree("1");
+
 
 class Tree {
   constructor(value){
@@ -29,7 +31,6 @@ class Tree {
   }
 
   findNode(target){
-    console.log("this:", this);
     if (this.value === target){
       return this;
     }
@@ -46,5 +47,6 @@ class Tree {
   }
 
 }
-
+console.log(Tree.prototype);
+console.dir(Tree,{showHidden: true, depth: null})
 module.exports = Tree;

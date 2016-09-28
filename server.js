@@ -1,11 +1,10 @@
+'use strict'
 const http = require('http');
 const _ = require('underscore');
 const Tree = require('./Tree.js');
-
 //Instantiate your public tree here
 //Add nodes to pass integration tests
-
-
+const publicTree = new Tree("1");
 
 // invoked on every request
 function requestHandler(request,response){
@@ -17,15 +16,16 @@ function requestHandler(request,response){
 
     //If it exists, find it
     let resultNode = publicTree.findNode(nodeId);
-    console.log(resultNode.children);
+    //console.log(resultNode.children);
 
     //Create an array of the child values
     let result = _.map(resultNode.children,function(child){return child.value});
-
+    slowReveal.push(result);
+    //console.log(slowReveal)
     //Set statusCode, headers and write stringified result to response body
     response.statusCode = 200;
     response.setHeader('Content-Type', 'application/json');
-    response.write(JSON.stringify(result));
+    response.write(JSON.stringify(slowReveal));
     response.end();
     return;
 

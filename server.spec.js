@@ -1,3 +1,4 @@
+'use strict'
 const expect = require('chai').expect;
 const querystring = require('querystring');
 const http = require('http');
@@ -33,7 +34,8 @@ describe("Public Tree API", function() {
         response.on('end', () => {
           console.log('No more data in response.');
           console.log(responseChunks);
-          responseBodyString = Buffer.concat(responseChunks).toString();
+          const responseBody = Buffer.concat(responseChunks).toString();
+          console.log(responseBody);
           const responseData = JSON.parse(responseBody);
 
           //One of these will fail; why?
